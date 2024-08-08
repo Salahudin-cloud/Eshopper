@@ -28,7 +28,7 @@
                         <a href="" class="nav-item nav-link">Jumpsuits</a>
                         <a href="" class="nav-item nav-link">Blazers</a>
                         <a href="" class="nav-item nav-link">Jackets</a>
-                        <a href="" class="nav-item nav-link">Shoes</a>
+                        <a href="" class="nav-item nav-link">Underwear</a>
                     </div>
                 </nav>
             </div>
