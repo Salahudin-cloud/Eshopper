@@ -1,20 +1,36 @@
 <?php
 
+use App\Http\Controllers\admin\CategoriesItemController;
+use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\ItemsController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
+// frontend 
 
 Route::get('/', [IndexController::class, 'index']);
 
-Route::get('shop', [ShopController::class, 'shopIndex']);
-
 Route::get('contact', [ContactController::class, 'contactIndex']);
 
-Route::get('detail/item/{itemSlug}', [ShopController::class, 'detailShopIndex']);
-// Route::get('detail', [ShopController::class, 'detailShopIndex']);
+Route::controller(ShopController::class)->group(function () {
+    Route::get('shop', 'shopIndex');
+    Route::get('shop/chart', 'chartShopIndex');
+    Route::get('shop/chart/checkout', 'checkoutShopIndex');
+    Route::get('detail/item/{itemSlug}', 'detailShopIndex');
+});
 
-Route::get('shop/chart', [ShopController::class, 'chartShopIndex']);
 
-Route::get('shop/chart/checkout', [ShopController::class, 'checkoutShopIndex']);
+// backend ( admin )
+Route::get('dashboard', [DashboardController::class, 'dashboardIndex'])->name('dashboard');
+
+// categories item
+Route::resource('categories-item', CategoriesItemController::class)->except([
+    'show'
+]);
+
+// items
+Route::resource('items', ItemsController::class)->except([
+    'show'
+]);
