@@ -27,18 +27,42 @@
                     </a>
                 </li>
                 {{-- Categories Item --}}
-                <li class="nav-item ">
-                    <a href="{{ route('categories-item.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-box"></i>
+                <li class="nav-item menu-open">
+                    <a href="" class="nav-link">
+                        <i class="nav-icon fas fa-tags"></i>
                         <p>
-                            Categories Item
+                            Categories
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('categories-item.index') }}" class="nav-link">
+                                <i class="fas fa-cube nav-icon"></i>
+                                <p>Item</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('categories-color.index') }}" class="nav-link">
+                                <i class="fas fa-palette nav-icon"></i>
+                                <p>Color</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
+                {{-- items --}}
+                <div class="nav-item">
+                    <a href="{{ route('brand-item.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-copyright"></i>
+                        <p>
+                            Brand Items
+                        </p>
+                    </a>
+                </div>
 
                 {{-- items --}}
                 <div class="nav-item">
-                    <a href="" class="nav-link">
+                    <a href="{{ route('items.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-archive"></i>
                         <p>
                             Items

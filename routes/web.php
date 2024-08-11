@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\admin\CategoriesItemController;
+use App\Http\Controllers\admin\BrandController;
 use App\Http\Controllers\admin\DashboardController;
-use App\Http\Controllers\admin\ItemsController;
+use App\Http\Controllers\admin\categories\ItemsController;
+use App\Http\Controllers\admin\categories\ColorsController;
+use App\Http\Controllers\admin\ItemSellController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ContactController;
@@ -25,12 +27,10 @@ Route::controller(ShopController::class)->group(function () {
 // backend ( admin )
 Route::get('dashboard', [DashboardController::class, 'dashboardIndex'])->name('dashboard');
 
-// categories item
-Route::resource('categories-item', CategoriesItemController::class)->except([
-    'show'
-]);
-
-// items
-Route::resource('items', ItemsController::class)->except([
-    'show'
+// backend route
+Route::resources([
+    'categories-item' => ItemsController::class,
+    'categories-color' => ColorsController::class,
+    'brand-item' => BrandController::class,
+    'items' => ItemSellController::class
 ]);

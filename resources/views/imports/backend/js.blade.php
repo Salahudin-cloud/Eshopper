@@ -14,13 +14,20 @@
 <script src="{{ asset('backend_theme/plugins/sparklines/sparkline.js') }}"></script>
 
 
-{{-- <!-- Tempusdominus Bootstrap 4 -->
-<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script> --}}
-
-
 <!-- Summernote -->
 <script src="{{ asset('backend_theme/plugins/summernote/summernote-bs4.min.js') }}"></script>
 <!-- overlayScrollbars -->
 <script src="{{ asset('backend_theme/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('backend_theme/dist/js/adminlte.js') }}"></script>
+
+<!-- DataTables  & Plugins -->
+<script src="{{ asset('backend_theme/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('backend_theme/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }} "></script>
+<script src="{{ asset('backend_theme/plugins/datatables-responsive/js/dataTables.responsive.min.js') }} "></script>
+<script src="{{ asset('backend_theme/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('backend_theme/plugins/datatables-buttons/js/dataTables.buttons.min.js') }} "></script>
+<script src="{{ asset('backend_theme/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }} "></script>
+<script src="{{ asset('backend_theme/plugins/datatables-buttons/js/buttons.html5.min.js') }} "></script>
+<script src="{{ asset('backend_theme/plugins/datatables-buttons/js/buttons.print.min.js') }} "></script>
+<script src="{{ asset('backend_theme/plugins/datatables-buttons/js/buttons.colVis.min.js') }} "></script>

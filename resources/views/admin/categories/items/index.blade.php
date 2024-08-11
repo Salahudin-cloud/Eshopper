@@ -50,13 +50,13 @@
                         </div>
                         <div class="card-body">
                             <!-- button add artikel -->
-                            <a href="">
+                            <a href="{{ route('categories-item.create') }}">
                                 <button class="btn btn-sm btn-success">
                                     <i class="fas fa-plus"></i> Add Categories
                                 </button>
                             </a>
                             <!-- Show list of artikel -->
-                            <table class="table table-bordered table-hover mt-2">
+                            <table id="ex" class="table table-bordered table-hover mt-2">
                                 <thead>
                                     <tr>
                                         <th style="width: 1%;">NO</th>
@@ -98,6 +98,23 @@
 
     {{-- js --}}
     @include('imports.backend.js')
+
+
+
+    {{-- settings for data table  --}}
+    <script>
+        $(function() {
+            $('#ex').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": true,
+                "ordering": false,
+                "info": false,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+    </script>
 </body>
 
 </html>
