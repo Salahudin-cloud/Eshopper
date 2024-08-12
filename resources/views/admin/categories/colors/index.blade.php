@@ -50,7 +50,7 @@
                         </div>
                         <div class="card-body">
                             <!-- button add artikel -->
-                            <a href="">
+                            <a href="{{ route('categories-color.create') }}">
                                 <button class="btn btn-sm btn-success">
                                     <i class="fas fa-plus"></i> Add Categories
                                 </button>

@@ -22,6 +22,7 @@ class ColorsController extends Controller
     public function create()
     {
         //
+        return view('admin/categories/colors/addColors');
     }
 
     /**
@@ -36,7 +37,10 @@ class ColorsController extends Controller
      * Display the specified resource.
      */
 
-
+    public function show(string $id)
+    {
+        return view('admin/categories/colors/updateColors');
+    }
     /**
      * Show the form for editing the specified resource.
      */
@@ -51,6 +55,7 @@ class ColorsController extends Controller
     public function update(Request $request, string $id)
     {
         //
+
     }
 
     /**

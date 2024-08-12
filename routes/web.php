@@ -18,8 +18,8 @@ Route::get('contact', [ContactController::class, 'contactIndex']);
 
 Route::controller(ShopController::class)->group(function () {
     Route::get('shop', 'shopIndex');
-    Route::get('shop/chart', 'chartShopIndex');
-    Route::get('shop/chart/checkout', 'checkoutShopIndex');
+    Route::get('shop/cart', 'chartShopIndex');
+    Route::get('shop/cart/checkout', 'checkoutShopIndex');
     Route::get('detail/item/{itemSlug}', 'detailShopIndex');
 });
 

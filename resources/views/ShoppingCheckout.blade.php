@@ -84,7 +84,7 @@
             <div class="d-inline-flex">
                 <p class="m-0"><a href="{{ url('/') }}">Home</a></p>
                 <p class="m-0 px-2">-</p>
-                <p class="m-0"><a href="{{ url('shop/chart') }}">Shopping Chart</a></p>
+                <p class="m-0"><a href="{{ url('shop/cart') }}">Shopping Chart</a></p>
                 <p class="m-0 px-2">-</p>
                 <p class="m-0">Checkout</p>
             </div>
