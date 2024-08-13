@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('items_colors', function (Blueprint $table) {
-            $table->integer('id_colors', true);
-            $table->string('colors_name');
+        Schema::create('users', function (Blueprint $table) {
+            $table->integer('id_users', true);
+            $table->string('username'); 
+            $table->string('password');
+            $table->enum('role', ['admin', 'users']);
             $table->timestamps();
         });
     }
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('items_colors');
+        Schema::dropIfExists('users');
     }
 };

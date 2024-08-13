@@ -17,9 +17,9 @@ return new class extends Migration
             $table->integer('id_colors');
             $table->integer('id_images');
             $table->integer('id_brands');
+            $table->integer('id_size');
             $table->string('items_name');
             $table->string('items_name_slug');
-            $table->enum('size', ['xs', 's', 'm', 'l', 'xl']);
             $table->enum('genders', ['male', 'female', 'kids', 'unisex']);
             $table->integer('price');
             $table->timestamps();
