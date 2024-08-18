@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class BrandController extends Controller
+class CouponsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +12,7 @@ class BrandController extends Controller
     public function index()
     {
         //
-        return view('admin/brand/index');
+        return view('admin/coupons/index');
     }
 
     /**
@@ -22,7 +21,7 @@ class BrandController extends Controller
     public function create()
     {
         //
-        return view('admin/brand/addBrand');
+        return view('admin/coupons/addCoupons');
     }
 
     /**
@@ -39,7 +38,7 @@ class BrandController extends Controller
     public function show(string $id)
     {
         //
-        return view('admin/brand/updateBrand');
+        return view('admin/coupons/updateCoupons');
     }
 
     /**

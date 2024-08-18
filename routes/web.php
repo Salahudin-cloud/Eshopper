@@ -1,13 +1,15 @@
 <?php
 
-use App\Http\Controllers\admin\BrandController;
+use App\Http\Controllers\admin\categories\BrandController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\categories\ItemsController;
 use App\Http\Controllers\admin\categories\ColorsController;
+use App\Http\Controllers\admin\categories\SizeController;
 use App\Http\Controllers\admin\ItemSellController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CouponsController;
 use Illuminate\Support\Facades\Route;
 
 // frontend 
@@ -32,5 +34,7 @@ Route::resources([
     'categories-item' => ItemsController::class,
     'categories-color' => ColorsController::class,
     'brand-item' => BrandController::class,
-    'items' => ItemSellController::class
+    'items' => ItemSellController::class,
+    'size-item' => SizeController::class,
+    'coupon' => CouponsController::class
 ]);

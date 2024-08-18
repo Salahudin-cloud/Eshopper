@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\admin\categories;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ItemsController extends Controller
+class BrandController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,6 +13,7 @@ class ItemsController extends Controller
     public function index()
     {
         //
+        return view('admin/categories/brand/index');
     }
 
     /**
@@ -21,6 +22,7 @@ class ItemsController extends Controller
     public function create()
     {
         //
+        return view('admin/categories/brand/addBrand');
     }
 
     /**
@@ -37,6 +39,7 @@ class ItemsController extends Controller
     public function show(string $id)
     {
         //
+        return view('admin/categories/brand/updateBrand');
     }
 
     /**

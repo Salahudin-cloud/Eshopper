@@ -31,7 +31,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Items</h1>
+                            <h1 class="m-0">Coupon</h1>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -44,47 +44,48 @@
                     <div class="card card-dark">
                         <div class="card-header">
                             <h1 class="card-title ">
-                                <i class="fas fa-archive" style="font-size: 1.5rem;"></i>
-                                <strong style="font-size: 1.5rem;"> List Items</strong>
+                                <i class="fas fa-ticket-alt" style="font-size: 1.5rem;"></i>
+                                <strong style="font-size: 1.5rem;"> List Coupons</strong>
                             </h1>
                         </div>
                         <div class="card-body">
                             <!-- button add artikel -->
-                            <a href="{{ route('items.create') }}">
+                            <a href="{{ route('coupon.create') }}">
                                 <button class="btn btn-sm btn-success">
-                                    <i class="fas fa-plus"></i> Add Items
+                                    <i class="fas fa-plus"></i> Add Coupon
                                 </button>
                             </a>
                             <!-- Show list of artikel -->
-                            <table id="ex" class="table table-bordered table-hover mt-2 text-center">
+                            <table id="ex" class="table table-bordered table-hover mt-2">
                                 <thead>
-                                    <th style="width:10%">Picture</th>
-                                    <th style="width: 5%">Tanggal Ditambahkan</th>
-                                    <th>Item Name</th>
-                                    <th>Brand</th>
-                                    <th>Category Item</th>
-                                    <th>Size</th>
-                                    <th>Genders</th>
-                                    <th>Price</th>
-                                    <th style="width: 5%">Action</th>
+                                    <tr>
+                                        <th style="width: 1%;">NO</th>
+                                        <th>Coupon Code</th>
+                                        <th>Discount type</th>
+                                        <th>Discount Value</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        <th>Usage Limit</th>
+                                        <th>Usage Count</th>
+                                        <th>Status Coupon</th>
+                                        <th style="width: 15%;">Action</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
+                                        <td>1</td>
+                                        <td>KLJASDK1D</td>
+                                        <td>percentage</td>
+                                        <td>$200</td>
+                                        <td>20-10-2020</td>
+                                        <td>21-10-2020</td>
+                                        <td>30</td>
+                                        <td>9</td>
                                         <td>
-                                            <img src="{{ asset('backend_theme/dist/img/prod-1.jpg') }}" alt=""
-                                                width="100%">
+                                            <p class="badge badge-success">Active</p>
                                         </td>
-                                        <td>29-09-1999</td>
-                                        <td>Bag</td>
-                                        <td>Gucci</td>
-                                        <td>Acsesories</td>
-                                        <td>XL</td>
-                                        <td>Unisex</td>
-                                        <td>$150</td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Action buttons">
-                                                <a href="" class="btn btn-sm btn-success"><i
-                                                        class="nav-icon fas fa-eye"></i></a>
                                                 <a href="" class="btn btn-sm btn-warning"><i
                                                         class="nav-icon fas fa-edit"></i></a>
                                                 <form action="" method="POST">

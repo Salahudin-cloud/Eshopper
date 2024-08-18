@@ -62,7 +62,7 @@
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="brand">Categories Name</label>
+                                        <label for="brand">Categories Size</label>
                                         <input type="text" class="form-control" id="brand" name="brand"
                                             value="">
                                     </div>

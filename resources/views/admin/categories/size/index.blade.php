@@ -31,7 +31,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Items</h1>
+                            <h1 class="m-0">Categories Item</h1>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -44,47 +44,32 @@
                     <div class="card card-dark">
                         <div class="card-header">
                             <h1 class="card-title ">
-                                <i class="fas fa-archive" style="font-size: 1.5rem;"></i>
-                                <strong style="font-size: 1.5rem;"> List Items</strong>
+                                <i class="fas fa-layer-group" style="font-size: 1.5rem;"></i>
+                                <strong style="font-size: 1.5rem;"> List Categories Item</strong>
                             </h1>
                         </div>
                         <div class="card-body">
                             <!-- button add artikel -->
-                            <a href="{{ route('items.create') }}">
+                            <a href="{{ route('size-item.create') }}">
                                 <button class="btn btn-sm btn-success">
-                                    <i class="fas fa-plus"></i> Add Items
+                                    <i class="fas fa-plus"></i> Add Categories
                                 </button>
                             </a>
                             <!-- Show list of artikel -->
-                            <table id="ex" class="table table-bordered table-hover mt-2 text-center">
+                            <table id="ex" class="table table-bordered table-hover mt-2">
                                 <thead>
-                                    <th style="width:10%">Picture</th>
-                                    <th style="width: 5%">Tanggal Ditambahkan</th>
-                                    <th>Item Name</th>
-                                    <th>Brand</th>
-                                    <th>Category Item</th>
-                                    <th>Size</th>
-                                    <th>Genders</th>
-                                    <th>Price</th>
-                                    <th style="width: 5%">Action</th>
+                                    <tr>
+                                        <th style="width: 1%;">NO</th>
+                                        <th>Size Name</th>
+                                        <th style="width: 15%;">Action</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>
-                                            <img src="{{ asset('backend_theme/dist/img/prod-1.jpg') }}" alt=""
-                                                width="100%">
-                                        </td>
-                                        <td>29-09-1999</td>
-                                        <td>Bag</td>
-                                        <td>Gucci</td>
-                                        <td>Acsesories</td>
-                                        <td>XL</td>
-                                        <td>Unisex</td>
-                                        <td>$150</td>
+                                        <td>1</td>
+                                        <td>XS</td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Action buttons">
-                                                <a href="" class="btn btn-sm btn-success"><i
-                                                        class="nav-icon fas fa-eye"></i></a>
                                                 <a href="" class="btn btn-sm btn-warning"><i
                                                         class="nav-icon fas fa-edit"></i></a>
                                                 <form action="" method="POST">
@@ -113,6 +98,7 @@
 
     {{-- js --}}
     @include('imports.backend.js')
+
 
 
     {{-- settings for data table  --}}

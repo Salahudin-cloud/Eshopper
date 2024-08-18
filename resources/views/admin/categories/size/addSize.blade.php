@@ -51,7 +51,7 @@
                         <div class="card-header">
                             <h1 class="card-title ">
                                 <i class="fas fa-layer-group" style="font-size: 1.5rem;"></i>
-                                <strong style="font-size: 1.5rem;">Update Categories</strong>
+                                <strong style="font-size: 1.5rem;">Add Categories</strong>
                             </h1>
                         </div>
                         <div class="card-body">
@@ -62,11 +62,11 @@
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="brand">Categories Name</label>
+                                        <label for="brand">Categories Size</label>
                                         <input type="text" class="form-control" id="brand" name="brand"
                                             value="">
                                     </div>
-                                    <button type="submit" class="btn btn-success form-control">Update</button>
+                                    <button type="submit" class="btn btn-success form-control">Add</button>
                                 </div>
                             </form>
                         </div>

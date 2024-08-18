@@ -48,19 +48,25 @@
                                 <p>Color</p>
                             </a>
                         </li>
+                        <div class="nav-item">
+                            <a href="{{ route('brand-item.index') }}" class="nav-link">
+                                <i class="nav-icon fas fa-copyright"></i>
+                                <p>
+                                    Brand
+                                </p>
+                            </a>
+                        </div>
+                        <div class="nav-item">
+                            <a href="{{ route('size-item.index') }}" class="nav-link">
+                                <i class="nav-icon fas fa-tshirt"></i>
+                                <p>
+                                    Size
+                                </p>
+                            </a>
+                        </div>
                     </ul>
                 </li>
-                {{-- items --}}
-                <div class="nav-item">
-                    <a href="{{ route('brand-item.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-copyright"></i>
-                        <p>
-                            Brand Items
-                        </p>
-                    </a>
-                </div>
-
-                {{-- items --}}
+                {{-- items  --}}
                 <div class="nav-item">
                     <a href="{{ route('items.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-archive"></i>
@@ -69,7 +75,15 @@
                         </p>
                     </a>
                 </div>
-
+                {{-- tickets  --}}
+                <div class="nav-item">
+                    <a href="{{ route('coupon.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-ticket-alt"></i>
+                        <p>
+                            Coupon
+                        </p>
+                    </a>
+                </div>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

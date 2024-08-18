@@ -20,6 +20,8 @@
 <script src="{{ asset('backend_theme/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('backend_theme/dist/js/adminlte.js') }}"></script>
+<!-- Select2 -->
+<script src="{{ asset('backend_theme/plugins/select2/js/select2.full.min.js') }}"></script>
 
 <!-- DataTables  & Plugins -->
 <script src="{{ asset('backend_theme/plugins/datatables/jquery.dataTables.min.js') }}"></script>
@@ -29,5 +31,4 @@
 <script src="{{ asset('backend_theme/plugins/datatables-buttons/js/dataTables.buttons.min.js') }} "></script>
 <script src="{{ asset('backend_theme/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }} "></script>
 <script src="{{ asset('backend_theme/plugins/datatables-buttons/js/buttons.html5.min.js') }} "></script>
-<script src="{{ asset('backend_theme/plugins/datatables-buttons/js/buttons.print.min.js') }} "></script>
 <script src="{{ asset('backend_theme/plugins/datatables-buttons/js/buttons.colVis.min.js') }} "></script>
