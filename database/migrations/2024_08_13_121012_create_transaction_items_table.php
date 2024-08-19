@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('transaction_items', function (Blueprint $table) {
             $table->integer('id_transaction', true);
             $table->integer('id_users');
-            $table->integer('id_coupon'); 
+            $table->integer('id_coupon')->nullable();
             $table->datetime('transaction_date');
             $table->integer('total_amount');
             $table->enum('payment_method', ['paypal', 'direct_check']);
@@ -25,6 +25,7 @@ return new class extends Migration
             $table->integer('tax_amount');
             $table->integer('discount_amount');
             $table->integer('final_amount');
+            $table->string('transaction_image')->nullable();
             $table->timestamps();
         });
     }

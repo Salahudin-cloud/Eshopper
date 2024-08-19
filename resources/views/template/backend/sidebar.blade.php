@@ -26,6 +26,15 @@
                         </p>
                     </a>
                 </li>
+                {{-- users --}}
+                <li class="nav-item ">
+                    <a href="{{ route('users.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Users
+                        </p>
+                    </a>
+                </li>
                 {{-- Categories Item --}}
                 <li class="nav-item menu-open">
                     <a href="" class="nav-link">
@@ -81,6 +90,15 @@
                         <i class="nav-icon fas fa-ticket-alt"></i>
                         <p>
                             Coupon
+                        </p>
+                    </a>
+                </div>
+                {{-- transaction  --}}
+                <div class="nav-item">
+                    <a href="{{ route('transactions.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-receipt"></i>
+                        <p>
+                            Transaction
                         </p>
                     </a>
                 </div>

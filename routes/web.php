@@ -10,6 +10,8 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CouponsController;
+use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 // frontend 
@@ -36,5 +38,7 @@ Route::resources([
     'brand-item' => BrandController::class,
     'items' => ItemSellController::class,
     'size-item' => SizeController::class,
-    'coupon' => CouponsController::class
+    'coupon' => CouponsController::class,
+    'users' => UsersController::class, 
+    'transactions' => TransactionController::class
 ]);
