@@ -64,17 +64,17 @@
                                     <div class="form-group">
                                         <label for="username">Username</label>
                                         <input type="text" class="form-control" id="username" name="username"
-                                            value="">
+                                            value="{{ old('username', $data->username) }}">
                                     </div>
                                     <div class="form-group">
                                         <label for="password">Password</label>
-                                        <input type="text" class="form-control" id="password" name="password"
-                                            value="">
+                                        <input type="password" class="form-control" id="password" name="password"
+                                            value="{{ old('password', $data->password) }}">
                                     </div>
                                     <div class="form-group">
                                         <label for="role">Role</label>
                                         <input type="text" class="form-control" id="role" name="role"
-                                            value="user" disabled>
+                                            value="users" disabled>
                                     </div>
 
                                     <button type="submit" class="btn btn-success form-control">Add</button>

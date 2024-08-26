@@ -56,9 +56,21 @@
                         </div>
                         <div class="card-body">
 
+                            {{-- alert error --}}
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
+
 
                             <!-- Form add new user accoiunt -->
-                            <form action="" method="post">
+                            <form action="{{ route('users.store') }}" method="post">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
@@ -74,7 +86,7 @@
                                     <div class="form-group">
                                         <label for="role">Role</label>
                                         <input type="text" class="form-control" id="role" name="role"
-                                            value="user" disabled>
+                                            value="users" disabled>
                                     </div>
 
                                     <button type="submit" class="btn btn-success form-control">Add</button>

@@ -2,17 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\UserServices;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
+    public function __construct(
+        protected UserServices $userServices
+    ) {}
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         //
-        return view('admin/users/index');
+        $data = $this->userServices->getAll();
+        return view('admin/users/index', ['users' => $data]);
     }
 
     /**
@@ -29,16 +35,32 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validation 
+        $request->validate([
+            'username' => 'bail|required|max:255',
+            'password' => 'required|min:8'
+        ]);
+
+        // if pass validation
+        // insert into database
+        $user = $this->userServices->createUser([
+            'username' => $request->username,
+            'password' => Hash::make($request->password),
+            'role' => 'users'
+        ]);
+
+        // redirect to list username 
+        return redirect()->to('users');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(int $id)
     {
         //
-        return view('admin/users/updateUser');
+        $data = $this->userServices->getUser($id);
+        return view('admin/users/updateUser', compact('data'));
     }
 
     /**
