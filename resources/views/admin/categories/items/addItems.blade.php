@@ -57,13 +57,13 @@
                         <div class="card-body">
 
 
-                            <!-- Form add new user accoiunt -->
-                            <form action="" method="post">
+                            <!-- Form add  items  -->
+                            <form action="{{ route('categories-item.store') }}" method="post">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="brand">Categories Item</label>
-                                        <input type="text" class="form-control" id="brand" name="brand"
+                                        <input type="text" class="form-control" id="item" name="item"
                                             value="">
                                     </div>
                                     <button type="submit" class="btn btn-success form-control">Add</button>

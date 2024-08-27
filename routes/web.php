@@ -32,6 +32,11 @@ Route::controller(ShopController::class)->group(function () {
 Route::get('dashboard', [DashboardController::class, 'dashboardIndex'])->name('dashboard');
 
 // backend route
+Route::resource('users',  UsersController::class)->except([
+    'show'
+]);
+
+
 Route::resources([
     'categories-item' => ItemsController::class,
     'categories-color' => ColorsController::class,
@@ -39,6 +44,5 @@ Route::resources([
     'items' => ItemSellController::class,
     'size-item' => SizeController::class,
     'coupon' => CouponsController::class,
-    'users' => UsersController::class, 
     'transactions' => TransactionController::class
 ]);

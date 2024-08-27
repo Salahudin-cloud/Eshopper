@@ -19,13 +19,13 @@ class UserRepository implements UserInterfaces
 
     public function updateUser(array $data, $id)
     {
-        return User::where($id)
+        return User::where('id_users', $id)
             ->update($data);
     }
 
     public function deleteUser($id)
     {
-        return User::where($id)
+        return User::where('id_users', $id)
             ->delete();
     }
 

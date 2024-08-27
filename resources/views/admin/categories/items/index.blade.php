@@ -49,13 +49,13 @@
                             </h1>
                         </div>
                         <div class="card-body">
-                            <!-- button add artikel -->
+                            <!-- button add  -->
                             <a href="{{ route('categories-item.create') }}">
                                 <button class="btn btn-sm btn-success">
                                     <i class="fas fa-plus"></i> Add Categories
                                 </button>
                             </a>
-                            <!-- Show list of artikel -->
+                            <!-- Show list of items  -->
                             <table id="ex" class="table table-bordered table-hover mt-2">
                                 <thead>
                                     <tr>
@@ -65,22 +65,30 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Sportwears</td>
-                                        <td>
-                                            <div class="btn-group" role="group" aria-label="Action buttons">
-                                                <a href="" class="btn btn-sm btn-warning"><i
-                                                        class="nav-icon fas fa-edit"></i></a>
-                                                <form action="" method="POST">
-                                                    <input type="hidden" name="_method" value="DELETE">
-                                                    <button class="btn btn-sm btn-danger" type="submit">
-                                                        <i class="nav-icon fas fa-trash-alt"></i>
-                                                    </button>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    @php
+                                        $i = 1;
+                                    @endphp
+                                    @foreach ($dataCategories as $item)
+                                        <tr>
+                                            <td>{{ $i++ }}</td>
+                                            <td>{{ $item->categories_name }}</td>
+                                            <td>
+                                                <div class="btn-group" role="group" aria-label="Action buttons">
+                                                    <a href="{{ route('categories-item.edit', ['categories_item' => $item->id_categories]) }}"
+                                                        class="btn btn-sm btn-warning"><i
+                                                            class="nav-icon fas fa-edit"></i></a>
+                                                    <form action="{{ $item->id_categories }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <input type="hidden" name="_method" value="DELETE">
+                                                        <button class="btn btn-sm btn-danger" type="submit">
+                                                            <i class="nav-icon fas fa-trash-alt"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

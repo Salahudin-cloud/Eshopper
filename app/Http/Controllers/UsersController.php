@@ -54,9 +54,9 @@ class UsersController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Show the form for editing the specified resource.
      */
-    public function show(int $id)
+    public function edit(int $id)
     {
         //
         $data = $this->userServices->getUser($id);
@@ -64,26 +64,44 @@ class UsersController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, int $id)
     {
-        //
+        $request->validate([
+            'username' => 'bail|required|max:255',
+            'password' => 'nullable|min:8'
+        ]);
+
+        // if pass 
+
+        // check the password if input is null 
+        if (is_null($request->password)) {
+            // update username only 
+            $newData = $this->userServices->updateUser([
+                'username' => $request->username
+            ], $id);
+
+            return redirect()->to('users');
+        }
+
+        // if password is filled 
+        // update both password and username 
+        $newData = $this->userServices->updateUser([
+            'username' => $request->username,
+            'password' => Hash::make($request->password)
+        ], $id);
+
+        return redirect()->to('users');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(int $id)
     {
         //
+        $userDelete = $this->userServices->deleteUser($id);
+        return redirect()->to('users');
     }
 }

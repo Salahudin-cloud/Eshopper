@@ -56,10 +56,21 @@
                         </div>
                         <div class="card-body">
 
+                            {{-- alert error --}}
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
 
                             <!-- Form add new user accoiunt -->
-                            <form action="" method="post">
+                            <form action="{{ route('users.update', ['user' => $data->id_users]) }}" method="post">
                                 @csrf
+                                @method('PUT')
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="username">Username</label>
@@ -70,6 +81,7 @@
                                         <label for="password">Password</label>
                                         <input type="password" class="form-control" id="password" name="password"
                                             value="{{ old('password', $data->password) }}">
+                                        <small><i class="text-danger">leave it blank if doesn't change</i></small>
                                     </div>
                                     <div class="form-group">
                                         <label for="role">Role</label>
@@ -77,7 +89,7 @@
                                             value="users" disabled>
                                     </div>
 
-                                    <button type="submit" class="btn btn-success form-control">Add</button>
+                                    <button type="submit" class="btn btn-success form-control">update</button>
                                 </div>
                             </form>
                         </div>

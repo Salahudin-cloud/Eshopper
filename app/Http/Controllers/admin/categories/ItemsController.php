@@ -3,17 +3,26 @@
 namespace App\Http\Controllers\admin\categories;
 
 use App\Http\Controllers\Controller;
+use App\Services\CategoriesItemsServices;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ItemsController extends Controller
 {
+
+    public function __construct(
+        protected CategoriesItemsServices $categoriesItemsServices
+    ) {}
+
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         //
-        return view('admin/categories/items/index');
+        $dataCategories = $this->categoriesItemsServices->getAllItemsCategories();
+        return view('admin/categories/items/index', compact('dataCategories'));
     }
 
     /**
@@ -30,7 +39,18 @@ class ItemsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validate 
+        $request->validate([
+            'item' =>  'required',
+        ]);
+
+        // if passed 
+        $newItems = $this->categoriesItemsServices->createItemsCategories([
+            'categories_name' => $request->item,
+            'categories_slug' => Str::slug($request->item)
+        ]);
+
+        return redirect()->to('categories-item');
     }
 
     /**

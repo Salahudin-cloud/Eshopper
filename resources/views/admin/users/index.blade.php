@@ -74,11 +74,14 @@
                                             <td>{{ $item->username }}</td>
                                             <td>
                                                 <div class="btn-group" role="group" aria-label="Action buttons">
-                                                    <a href="{{ route('users.show', ['user' => $item->id_users]) }}"
+                                                    <a href="{{ route('users.edit', ['user' => $item->id_users]) }}"
                                                         class="btn btn-sm btn-warning"><i
                                                             class="nav-icon fas fa-edit"></i></a>
-                                                    <form action="" method="POST">
-                                                        <input type="hidden" name="_method" value="DELETE">
+                                                    <form
+                                                        action="{{ route('users.destroy', ['user' => $item->id_users]) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
                                                         <button class="btn btn-sm btn-danger" type="submit">
                                                             <i class="nav-icon fas fa-trash-alt"></i>
                                                         </button>
