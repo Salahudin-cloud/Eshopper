@@ -61,6 +61,7 @@
                                     <tr>
                                         <th style="width: 1%;">NO</th>
                                         <th>Categories Name</th>
+                                        <th>Categories Item Slug</th>
                                         <th style="width: 15%;">Action</th>
                                     </tr>
                                 </thead>
@@ -72,15 +73,17 @@
                                         <tr>
                                             <td>{{ $i++ }}</td>
                                             <td>{{ $item->categories_name }}</td>
+                                            <td>{{ $item->categories_slug }}</td>
                                             <td>
                                                 <div class="btn-group" role="group" aria-label="Action buttons">
                                                     <a href="{{ route('categories-item.edit', ['categories_item' => $item->id_categories]) }}"
                                                         class="btn btn-sm btn-warning"><i
                                                             class="nav-icon fas fa-edit"></i></a>
-                                                    <form action="{{ $item->id_categories }}" method="POST">
+                                                    <form
+                                                        action="{{ route('categories-item.destroy', ['categories_item' => $item->id_categories]) }}"
+                                                        method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <input type="hidden" name="_method" value="DELETE">
                                                         <button class="btn btn-sm btn-danger" type="submit">
                                                             <i class="nav-icon fas fa-trash-alt"></i>
                                                         </button>

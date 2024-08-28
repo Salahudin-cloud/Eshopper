@@ -56,15 +56,28 @@
                         </div>
                         <div class="card-body">
 
+                            {{-- alert error --}}
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
 
                             <!-- Form add new user accoiunt -->
-                            <form action="" method="post">
+                            <form
+                                action="{{ Route('categories-item.update', ['categories_item' => $dataItemCategories->id_categories]) }}"
+                                method="post">
                                 @csrf
+                                @method('PUT')
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="brand">Categories Name</label>
-                                        <input type="text" class="form-control" id="brand" name="brand"
-                                            value="">
+                                        <label for="item">Categories Name</label>
+                                        <input type="text" class="form-control" id="item" name="item"
+                                            value="{{ old('categories_name', $dataItemCategories) }}">
                                     </div>
                                     <button type="submit" class="btn btn-success form-control">Update</button>
                                 </div>

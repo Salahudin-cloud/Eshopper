@@ -31,7 +31,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Categories Items</h1>
+                            <h1 class="m-0">Categories Color</h1>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                     <!-- button back -->
@@ -51,20 +51,33 @@
                         <div class="card-header">
                             <h1 class="card-title ">
                                 <i class="fas fa-layer-group" style="font-size: 1.5rem;"></i>
-                                <strong style="font-size: 1.5rem;">Update Items</strong>
+                                <strong style="font-size: 1.5rem;">Update Colors</strong>
                             </h1>
                         </div>
                         <div class="card-body">
+                            {{-- alert error --}}
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
 
 
                             <!-- Form add new user accoiunt -->
-                            <form action="" method="post">
+                            <form
+                                action="{{ route('categories-color.update', ['categories_color' => $data->id_colos]) }}"
+                                method="post">
                                 @csrf
+                                @method('PUT')
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="brand">Categories Colors</label>
-                                        <input type="text" class="form-control" id="brand" name="brand"
-                                            value="">
+                                        <label for="color">Categories Colors</label>
+                                        <input type="text" class="form-control" id="color" name="color"
+                                            value="{{ old('colors_name', $data->colors_name) }}">
                                     </div>
                                     <button type="submit" class="btn btn-success form-control">Update</button>
                                 </div>

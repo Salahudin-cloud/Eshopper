@@ -31,7 +31,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Categories Item</h1>
+                            <h1 class="m-0">Categories Color</h1>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -61,26 +61,37 @@
                                     <tr>
                                         <th style="width: 1%;">NO</th>
                                         <th>Categories Name</th>
+                                        <th>Categories Slug</th>
                                         <th style="width: 15%;">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Blue</td>
-                                        <td>
-                                            <div class="btn-group" role="group" aria-label="Action buttons">
-                                                <a href="" class="btn btn-sm btn-warning"><i
-                                                        class="nav-icon fas fa-edit"></i></a>
-                                                <form action="" method="POST">
-                                                    <input type="hidden" name="_method" value="DELETE">
-                                                    <button class="btn btn-sm btn-danger" type="submit">
-                                                        <i class="nav-icon fas fa-trash-alt"></i>
-                                                    </button>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    @php
+                                        $i = 1;
+                                    @endphp
+                                    @foreach ($dataColors as $item)
+                                        <tr>
+                                            <td>{{ $i++ }}</td>
+                                            <td>{{ $item->colors_name }}</td>
+                                            <td>{{ $item->colors_slug }}</td>
+                                            <td>
+                                                <div class="btn-group" role="group" aria-label="Action buttons">
+                                                    <a href="{{ route('categories-color.edit', ['categories_color' => $item->id_colos]) }}"
+                                                        class="btn btn-sm btn-warning"><i
+                                                            class="nav-icon fas fa-edit"></i></a>
+                                                    <form
+                                                        action="{{ route('categories-color.destroy', ['categories_color' => $item->id_colos]) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="btn btn-sm btn-danger" type="submit">
+                                                            <i class="nav-icon fas fa-trash-alt"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

@@ -56,17 +56,16 @@ class ItemsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show()
-    {
-        return view('admin/categories/items/updateItems');
-    }
+    public function show() {}
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(int $id)
     {
         //
+        $dataItemCategories = $this->categoriesItemsServices->getItemsCategories($id);
+        return view('admin/categories/items/updateItems', compact('dataItemCategories'));
     }
 
     /**
@@ -74,7 +73,20 @@ class ItemsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // validate 
+        $request->validate([
+            'item'
+        ]);
+
+        // if pass 
+        // update the data 
+        $updateData = $this->categoriesItemsServices->updateItemsCategories([
+            'categories_name' => $request->item,
+            'categories_slug' => Str::slug($request->item)
+        ], $id);
+
+        // return 
+        return redirect()->to('categories-item');
     }
 
     /**
@@ -82,6 +94,9 @@ class ItemsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        //  
+        $delete = $this->categoriesItemsServices->deleteItemsCategories($id);
+
+        return redirect()->to('categories-item');
     }
 }
