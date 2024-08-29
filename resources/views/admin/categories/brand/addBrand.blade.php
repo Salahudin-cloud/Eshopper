@@ -31,7 +31,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Brand</h1>
+                            <h1 class="m-0">Categories Brand</h1>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                     <!-- button back -->
@@ -58,7 +58,7 @@
 
 
                             <!-- Form add new user accoiunt -->
-                            <form action="" method="post">
+                            <form action="{{ route('brand-item.store') }}" method="post">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">

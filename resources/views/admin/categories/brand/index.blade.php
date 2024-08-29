@@ -31,7 +31,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Brand</h1>
+                            <h1 class="m-0">Categories Brand</h1>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -61,6 +61,7 @@
                                     <tr>
                                         <th style="width: 1%;">NO</th>
                                         <th>Brand Name</th>
+                                        <th>Brand Slug</th>
                                         <th style="width: 15%;">Action</th>
                                     </tr>
                                 </thead>
@@ -68,6 +69,7 @@
                                     <tr>
                                         <td>1</td>
                                         <td>Gucci</td>
+                                        <td>gucci</td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Action buttons">
                                                 <a href="" class="btn btn-sm btn-warning"><i

@@ -3,10 +3,16 @@
 namespace App\Http\Controllers\admin\categories;
 
 use App\Http\Controllers\Controller;
+use App\Services\CategoriesBrandsServices;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class BrandController extends Controller
 {
+
+    public function __construct(
+        protected CategoriesBrandsServices $categoriesBrandsServices
+    ) {}
     /**
      * Display a listing of the resource.
      */
@@ -31,6 +37,20 @@ class BrandController extends Controller
     public function store(Request $request)
     {
         //
+        //validate the input 
+        $request->validate([
+            'brand' => 'required'
+        ]);
+
+        // if passed 
+        // insert into the storage database
+        $user = $this->categoriesBrandsServices->createBrandsCategories([
+            'name_brands' => $request->brand,
+            'brands_slug' => Str::slug($request->brand)
+        ]);
+
+        // redirect 
+        return redirect()->to('brand-item');
     }
 
     /**
