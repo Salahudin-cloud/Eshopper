@@ -3,38 +3,38 @@
 namespace App\Repositories;
 
 use App\Interfaces\CategoriesItemsInterfaces;
-use App\Models\categories_items;
+use App\Models\CategoriesItems;
 
 
 class CategoriesItemsRepository implements CategoriesItemsInterfaces
 {
     public function getAllItemsCategories()
     {
-       return  categories_items::all();
+       return  CategoriesItems::all();
     }
 
 
     public function createItemsCategories(array $data)
     {
-       return  categories_items::create($data);
+       return  CategoriesItems::create($data);
     }
 
 
     public function updateItemsCategories(array $data, $id)
     {
-       return  categories_items::where('id_categories', $id)
+       return  CategoriesItems::where('id_categories', $id)
             ->update($data);
     }
 
     public function deleteItemsCategories($id)
     {
-       return  categories_items::where('id_categories', $id)
+       return  CategoriesItems::where('id_categories', $id)
             ->delete();
     }
 
 
     public function getItemsCategories($id)
     {
-       return  categories_items::where('id_categories', $id)->first();
+       return  CategoriesItems::where('id_categories', $id)->first();
     }
 }

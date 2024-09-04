@@ -3,17 +3,24 @@
 namespace App\Http\Controllers\admin\categories;
 
 use App\Http\Controllers\Controller;
+use App\Services\CategoriesSizeServices;
 use Illuminate\Http\Request;
 
 class SizeController extends Controller
 {
+    public function __construct(
+        protected CategoriesSizeServices $categoriesSizeServices
+    ) {}
+
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         //
-        return view('admin/categories/size/index');
+        $data = $this->categoriesSizeServices->getAllSizeCategories();
+        return view('admin/categories/size/index', compact('data'));
     }
 
     /**

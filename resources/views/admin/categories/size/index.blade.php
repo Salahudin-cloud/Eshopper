@@ -61,28 +61,61 @@
                                     <tr>
                                         <th style="width: 1%;">NO</th>
                                         <th>Size Name</th>
+                                        <th>Size Slug</th>
                                         <th style="width: 15%;">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>XS</td>
-                                        <td>
-                                            <div class="btn-group" role="group" aria-label="Action buttons">
-                                                <a href="" class="btn btn-sm btn-warning"><i
-                                                        class="nav-icon fas fa-edit"></i></a>
-                                                <form action="" method="POST">
-                                                    <input type="hidden" name="_method" value="DELETE">
-                                                    <button class="btn btn-sm btn-danger" type="submit">
+                                    @php
+                                        $i = 1;
+                                    @endphp
+
+                                    @foreach ($data as $item)
+                                        <tr>
+                                            <td>{{ $i++ }}</td>
+                                            <td>{{ $item->size_name }}</td>
+                                            <td>{{ $item->size_slug }}</td>
+                                            <td>
+                                                <div class="btn-group" role="group" aria-label="Action buttons">
+                                                    <a href="{{ route('size-item.edit', ['size_item' => $item->id_size]) }}"
+                                                        class="btn btn-sm btn-warning"><i
+                                                            class="nav-icon fas fa-edit"></i></a>
+                                                    <button class="btn btn-sm btn-danger btn-delete"
+                                                        data-action="{{ route('size-item.destroy', ['size_item' => $item->id_size]) }}">
                                                         <i class="nav-icon fas fa-trash-alt"></i>
                                                     </button>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
+                            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+                                aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Are you sure you want to delete this ?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Cancel</button>
+                                            <form id="deleteForm" action="" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -112,6 +145,29 @@
                 "info": false,
                 "autoWidth": false,
                 "responsive": true,
+            });
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const deleteButtons = document.querySelectorAll('.btn-delete');
+            const deleteForm = document.getElementById('deleteForm');
+            let formAction = '';
+
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    formAction = button.getAttribute('data-action');
+                    $('#deleteModal').modal('show');
+                });
+            });
+
+            $('#deleteModal').on('hidden.bs.modal', function() {
+                deleteForm.action = '';
+            });
+
+            deleteForm.addEventListener('submit', function() {
+                this.action = formAction;
             });
         });
     </script>

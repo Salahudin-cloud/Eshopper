@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class categories_items extends Model
+class CategoriesItems extends Model
 {
     use HasFactory;
 

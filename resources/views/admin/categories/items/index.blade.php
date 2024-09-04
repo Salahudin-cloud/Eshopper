@@ -79,21 +79,42 @@
                                                     <a href="{{ route('categories-item.edit', ['categories_item' => $item->id_categories]) }}"
                                                         class="btn btn-sm btn-warning"><i
                                                             class="nav-icon fas fa-edit"></i></a>
-                                                    <form
-                                                        action="{{ route('categories-item.destroy', ['categories_item' => $item->id_categories]) }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button class="btn btn-sm btn-danger" type="submit">
-                                                            <i class="nav-icon fas fa-trash-alt"></i>
-                                                        </button>
-                                                    </form>
+                                                    <button class="btn btn-sm btn-danger btn-delete"
+                                                        data-action="{{ route('categories-item.destroy', ['categories_item' => $item->id_categories]) }}">
+                                                        <i class="nav-icon fas fa-trash-alt"></i>
+                                                    </button>
                                                 </div>
                                             </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
+                            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+                                aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Are you sure you want to delete this ?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Cancel</button>
+                                            <form id="deleteForm" action="" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -123,6 +144,27 @@
                 "info": false,
                 "autoWidth": false,
                 "responsive": true,
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            const deleteButtons = document.querySelectorAll('.btn-delete');
+            const deleteForm = document.getElementById('deleteForm');
+            let formAction = '';
+
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    formAction = button.getAttribute('data-action');
+                    $('#deleteModal').modal('show');
+                });
+            });
+
+            $('#deleteModal').on('hidden.bs.modal', function() {
+                deleteForm.action = '';
+            });
+
+            deleteForm.addEventListener('submit', function() {
+                this.action = formAction;
             });
         });
     </script>

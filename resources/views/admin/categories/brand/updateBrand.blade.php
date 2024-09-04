@@ -55,18 +55,29 @@
                             </h1>
                         </div>
                         <div class="card-body">
-
+                            {{-- alert error --}}
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
 
                             <!-- Form add new user accoiunt -->
-                            <form action="" method="post">
+                            <form action="{{ route('brand-item.update', ['brand_item' => $data->id_brands]) }}"
+                                method="post">
                                 @csrf
+                                @method('PUT')
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="brand">Brand</label>
                                         <input type="text" class="form-control" id="brand" name="brand"
-                                            value="">
+                                            value="{{ old('name_brands', $data->name_brands) }}">
                                     </div>
-                                    <button type="submit" class="btn btn-success form-control">Add</button>
+                                    <button type="submit" class="btn btn-success form-control">Update</button>
                                 </div>
                             </form>
                         </div>

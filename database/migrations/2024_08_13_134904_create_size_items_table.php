@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('size_items', function (Blueprint $table) {
             $table->integer('id_size', true);
             $table->string('size_name'); 
+            $table->string('size_slug');
             $table->timestamps();
         });
     }
