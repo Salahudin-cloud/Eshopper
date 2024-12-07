@@ -94,8 +94,9 @@
 
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Action buttons">
-                                                <a href="" class="btn btn-sm btn-warning"><i
-                                                        class="nav-icon fas fa-edit"></i></a>
+                                                <a href="" class="btn btn-sm btn-success mr-1">
+                                                    <i class="fas fa-check"></i>
+                                                </a>
                                                 <form action="" method="POST">
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <button class="btn btn-sm btn-danger" type="submit">
