@@ -25,35 +25,21 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //user 
-        $this->app->bind(UserInterfaces::class, UserRepository::class);
-        $this->app->bind(UserServices::class, function ($app) {
-            return new UserServices($app->make(UserInterfaces::class));
-        });
+        $bindings = [
+            // [Interface, Repository, Service]
+            [\App\Interfaces\UserInterfaces::class, \App\Repositories\UserRepository::class, \App\Services\UserServices::class],
+            [\App\Interfaces\CategoriesItemsInterfaces::class, \App\Repositories\CategoriesItemsRepository::class, \App\Services\CategoriesItemsServices::class],
+            [\App\Interfaces\CategoriesColorsInterfaces::class, \App\Repositories\CategoriesColorsRepository::class, \App\Services\CategoriesColorsServices::class],
+            [\App\Interfaces\CategoriesBrandsInterfaces::class, \App\Repositories\CategoriesBrandsRepository::class, \App\Services\CategoriesBrandsServices::class],
+            [\App\Interfaces\CategoriesSizeInterfaces::class, \App\Repositories\CategoriesSizeRepository::class, \App\Services\CategoriesSizeServices::class],
+        ];
 
-        // categories items 
-        $this->app->bind(CategoriesItemsInterfaces::class, CategoriesItemsRepository::class);
-        $this->app->bind(CategoriesItemsServices::class, function ($app) {
-            return new CategoriesItemsServices($app->make(CategoriesItemsInterfaces::class));
-        });
-
-        // categories colors 
-        $this->app->bind(CategoriesColorsInterfaces::class, CategoriesColorsRepository::class);
-        $this->app->bind(CategoriesColorsServices::class, function ($app) {
-            return new CategoriesColorsServices($app->make(CategoriesColorsInterfaces::class));
-        });
-
-        // categories brands 
-        $this->app->bind(CategoriesBrandsInterfaces::class, CategoriesBrandsRepository::class);
-        $this->app->bind(CategoriesBrandsServices::class, function ($app) {
-            return new CategoriesBrandsServices($app->make(CategoriesBrandsInterfaces::class));
-        });
-
-        // categories brands 
-        $this->app->bind(CategoriesSizeInterfaces::class, CategoriesSizeRepository::class);
-        $this->app->bind(CategoriesItemsServices::class, function ($app) {
-            return new CategoriesItemsServices($app->make(CategoriesSizeInterfaces::class));
-        });
+        foreach ($bindings as [$interface, $repository, $service]) {
+            $this->app->bind($interface, $repository);
+            $this->app->bind($service, function ($app) use ($interface, $service) {
+                return new $service($app->make($interface));
+            });
+        }
     }
 
     /**
